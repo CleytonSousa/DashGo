@@ -19,13 +19,13 @@ import { Sidebar } from "../../components/Sidebar";
 import { Header } from "../../components/Header";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Pagination } from "../../components/Pagination";
+import Link from "next/link";
 
 export default function UserList() {
   const isWideVersion = useBreakpointValue({
     base: false,
-    lg: true
-  })
-
+    lg: true,
+  });
 
   return (
     <Box>
@@ -39,16 +39,17 @@ export default function UserList() {
             <Heading size="lg" fontWeight="normal">
               Usuarios
             </Heading>
-
-            <Button
-              as="a"
-              size="sm"
-              fontSize="sm"
-              colorScheme="pink"
-              leftIcon={<Icon as={RiAddLine} fontSize="20"/>}
-            >
-              Criar novo usuario
-            </Button>
+            <Link href="/users/create" passHref>
+              <Button
+                as="a"
+                size="sm"
+                fontSize="sm"
+                colorScheme="pink"
+                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+              >
+                Criar novo usuario
+              </Button>
+            </Link>
           </Flex>
 
           <Table colorScheme="whiteAlpha">
@@ -63,7 +64,6 @@ export default function UserList() {
               </Tr>
             </Thead>
             <Tbody>
-              
               <Tr>
                 <Td px={["4", "4", "6"]}>
                   <Checkbox colorScheme="pink" />
@@ -83,9 +83,9 @@ export default function UserList() {
                     size="sm"
                     fontSize="sm"
                     colorScheme="purple"
-                    leftIcon={<Icon as={RiPencilLine} fontSize="16"/>}
+                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
                   >
-                    {isWideVersion ? 'Editar' : ''}
+                    {isWideVersion ? "Editar" : ""}
                   </Button>
                 </Td>
               </Tr>
@@ -109,9 +109,9 @@ export default function UserList() {
                     size="sm"
                     fontSize="sm"
                     colorScheme="purple"
-                    leftIcon={<Icon as={RiPencilLine} fontSize="16"/>}
+                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
                   >
-                    {isWideVersion ? 'Editar' : ''}
+                    {isWideVersion ? "Editar" : ""}
                   </Button>
                 </Td>
               </Tr>
@@ -135,13 +135,12 @@ export default function UserList() {
                     size="sm"
                     fontSize="sm"
                     colorScheme="purple"
-                    leftIcon={<Icon as={RiPencilLine} fontSize="16"/>}
+                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
                   >
-                    {isWideVersion ? 'Editar' : ''}
+                    {isWideVersion ? "Editar" : ""}
                   </Button>
                 </Td>
               </Tr>
-
             </Tbody>
           </Table>
 
