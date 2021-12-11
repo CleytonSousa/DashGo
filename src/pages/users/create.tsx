@@ -52,10 +52,7 @@ export default function CreateUser() {
     resolver: yupResolver(CreateUserFormSchema),
   });
 
-  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (
-    values
-  ) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
     console.log(values);
   };
 
@@ -86,14 +83,14 @@ export default function CreateUser() {
                 name="name"
                 label="Nome completo"
                 type="text"
-                {...register}
+                {...register("name")}
                 error={errors.name}
               />
               <Input
                 name="email"
                 type="email"
                 label="E-mail"
-                {...register}
+                {...register("email")}
                 error={errors.email}
               />
             </SimpleGrid>
@@ -102,14 +99,14 @@ export default function CreateUser() {
                 name="password"
                 type="password"
                 label="Senha"
-                {...register}
+                {...register("password")}
                 error={errors.password}
               />
               <Input
                 name="password_confirmation"
                 type="password"
                 label="Confirme a senha"
-                {...register}
+                {...register("password_confirmation")}
                 error={errors.password_confirmation}
               />
             </SimpleGrid>
