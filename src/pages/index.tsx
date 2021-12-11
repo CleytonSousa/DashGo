@@ -25,7 +25,7 @@ export default function SignIn() {
     resolver: yupResolver(signInFormSchema),
   });
 
-  console.log(errors);
+  // console.log(errors);
   const handleSignIn: SubmitHandler<SignInFormData> = (values) => {
     console.log(values);
   };
