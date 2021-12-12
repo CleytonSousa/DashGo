@@ -20,8 +20,8 @@ function generatePageArray(from: number, to: number) {
 
 export const Pagination = ({
   totalCountOfRegisters,
-  currentPage = 1,
   registersPerPage = 10,
+  currentPage = 1,
   onPageChange,
 }: PaginationProps) => {
   const lastPage = Math.ceil(totalCountOfRegisters / registersPerPage);
@@ -52,7 +52,7 @@ export const Pagination = ({
       <Stack direction="row" spacing="2">
         {currentPage > 1 + siblingsCount && (
           <>
-            <PaginationItem number={1} />
+            <PaginationItem onPageChange={onPageChange} number={1} />
             {currentPage > 2 + siblingsCount && <Text 
             color="gray.300"
             textAlign="center"
@@ -63,14 +63,14 @@ export const Pagination = ({
 
         {previusPage.length > 0 &&
           previusPage.map((page) => {
-            return <PaginationItem key={page} number={page} />;
+            return <PaginationItem onPageChange={onPageChange} key={page} number={page} />;
           })}
 
-        <PaginationItem number={currentPage} isCurrent />
+        <PaginationItem onPageChange={onPageChange} number={currentPage} isCurrent />
 
         {nextPage.length > 0 &&
           nextPage.map((page) => {
-            return <PaginationItem key={page} number={page} />;
+            return <PaginationItem onPageChange={onPageChange} key={page} number={page} />;
           })}
 
         {currentPage + siblingsCount < lastPage && (
@@ -80,7 +80,7 @@ export const Pagination = ({
           textAlign="center"
           width="8"
           >...</Text>}
-            <PaginationItem number={lastPage} />
+            <PaginationItem onPageChange={onPageChange} number={lastPage} />
           </>
         )}
       </Stack>
